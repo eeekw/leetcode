@@ -38,7 +38,7 @@ function rob(root: TreeNode | null): number {
 }
 
 const result = rob(new TreeNode(5))
-console.log(result)
+// console.log(result)
 
 function romanToInt(s: string): number {
   let number: number = 0
@@ -65,7 +65,7 @@ function romanToInt(s: string): number {
   return number
 }
 
-console.log(romanToInt('III'))
+// console.log(romanToInt('III'))
 
 function longestCommonPrefix(strs: string[]): string {
   if (strs.length == 0) {
@@ -88,7 +88,7 @@ function longestCommonPrefix(strs: string[]): string {
   return strs[0].substr(0, getLength())
 }
 
-console.log(longestCommonPrefix(['flower', 'flow', 'flight']))
+// console.log(longestCommonPrefix(['flower', 'flow', 'flight']))
 
 function threeSum(nums: number[]): number[][] {
   nums.sort((a, b) => a - b)
@@ -117,7 +117,7 @@ function threeSum(nums: number[]): number[][] {
   return numbers
 }
 
-console.log(threeSum([-1, 0, 1, 2, -1, -4]))
+// console.log(threeSum([-1, 0, 1, 2, -1, -4]))
 
 function palindromePairs(words: string[]): number[][] {
   let number: number[][] = []
@@ -146,7 +146,7 @@ function palindromePairs(words: string[]): number[][] {
   return number
 }
 
-console.log(palindromePairs(['abcd', 'dcba', 'lls', 's', 'sssll']))
+// console.log(palindromePairs(['abcd', 'dcba', 'lls', 's', 'sssll']))
 
 function letterCombinations(digits: string): string[] {
   let output: string[] = []
@@ -178,7 +178,7 @@ function letterCombinations(digits: string): string[] {
   return output
 }
 
-console.log(letterCombinations('23'))
+// console.log(letterCombinations('23'))
 
 class ListNode {
   val: number
@@ -230,7 +230,7 @@ function isValid(s: string): boolean {
   return pair(s)
 }
 
-console.log(isValid('()[]{}'))
+// console.log(isValid('()[]{}'))
 
 function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
   function isSame(p: TreeNode | null, q: TreeNode | null): boolean {
@@ -270,7 +270,7 @@ function countBinarySubstrings(s: string): number {
   return number
 }
 
-console.log(countBinarySubstrings('00110'))
+// console.log(countBinarySubstrings('00110'))
 
 function solve(board: string[][]): void {
   function findO(board: string[][], i: number, j: number) {
@@ -322,16 +322,16 @@ function solve(board: string[][]): void {
   }
 }
 
-console.log(
-  solve([
-    ['X', 'X', 'X', 'X'],
-    ['X', 'O', 'O', 'X'],
-    ['X', 'X', 'O', 'X'],
-    ['X', 'O', 'X', 'X']
-  ])
-)
+// console.log(
+//   solve([
+//     ['X', 'X', 'X', 'X'],
+//     ['X', 'O', 'O', 'X'],
+//     ['X', 'X', 'O', 'X'],
+//     ['X', 'O', 'X', 'X']
+//   ])
+// )
 
-function multiply(num1: string, num2: string): string {
+export function multiply(num1: string, num2: string): string {
   if (num1 == '0' || num2 == '0') {
     return '0'
   }
@@ -343,15 +343,13 @@ function multiply(num1: string, num2: string): string {
   }
   let product = ''
   for (let i = multi.length - 1; i > 0; i--) {
-    const e = multi[i]
-    multi[i - 1] += Math.floor(e / 10)
+    const e = multi[i];
+    multi[i-1] += Math.floor((e / 10))
     multi[i] = e % 10
   }
   product = multi.join('')
-  return product[0] == '0' ? product.substr(1) : product
+  return product[0] == '0' ? product.substr(1): product
 }
-
-console.log(multiply('2', '3'))
 
 function floodFill(
   image: number[][],
@@ -381,18 +379,18 @@ function floodFill(
   return image
 }
 
-console.log(
-  floodFill(
-    [
-      [1, 1, 1],
-      [1, 1, 0],
-      [1, 0, 1]
-    ],
-    1,
-    1,
-    2
-  )
-)
+// console.log(
+//   floodFill(
+//     [
+//       [1, 1, 1],
+//       [1, 1, 0],
+//       [1, 0, 1]
+//     ],
+//     1,
+//     1,
+//     2
+//   )
+// )
 
 function sortedListToBST(head: ListNode | null): TreeNode | null {
   if (head == null) {
