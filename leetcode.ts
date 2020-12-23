@@ -343,12 +343,95 @@ function multiply(num1: string, num2: string): string {
   }
   let product = ''
   for (let i = multi.length - 1; i > 0; i--) {
-    const e = multi[i];
-    multi[i-1] += Math.floor((e / 10))
+    const e = multi[i]
+    multi[i - 1] += Math.floor(e / 10)
     multi[i] = e % 10
   }
   product = multi.join('')
-  return product[0] == '0' ? product.substr(1): product
+  return product[0] == '0' ? product.substr(1) : product
 }
 
 console.log(multiply('2', '3'))
+
+function floodFill(
+  image: number[][],
+  sr: number,
+  sc: number,
+  newColor: number
+): number[][] {
+  const old = image[sr][sc]
+  if (newColor == old) {
+    return image
+  }
+
+  function fill(sr: number, sc: number) {
+    if (sr < 0 || sr >= image.length || sc < 0 || sc >= image[0].length) {
+      return
+    }
+    if (image[sr][sc] == old) {
+      image[sr][sc] = newColor
+      fill(sr - 1, sc)
+      fill(sr + 1, sc)
+      fill(sr, sc - 1)
+      fill(sr, sc + 1)
+    }
+  }
+  fill(sr, sc)
+
+  return image
+}
+
+console.log(
+  floodFill(
+    [
+      [1, 1, 1],
+      [1, 1, 0],
+      [1, 0, 1]
+    ],
+    1,
+    1,
+    2
+  )
+)
+
+function sortedListToBST(head: ListNode | null): TreeNode | null {
+  if (head == null) {
+    return null
+  }
+  let l: number = 0
+  let next: ListNode | null = head
+  while (next) {
+    l += 1
+    next = next.next
+  }
+  next = head
+  function buildTree(left: number, right: number) : TreeNode | null {
+    if (left > right) {
+      return null
+    }
+    const c = Math.floor((left + right + 1) / 2)
+    const node = new TreeNode()
+    node.left = buildTree(left, c - 1)
+    node.val = next!.val
+    next = next!.next
+    node.right = buildTree(c + 1, right)
+    return node
+  }
+
+  return buildTree(0, l - 1)
+}
+
+function countSubstrings(s: string): number {
+  const n = s.length
+  let ans = 0
+  for (let i = 0; i < 2 * n - 1; i++) {
+    let l = Math.floor(i / 2 )
+    let r = l + i % 2
+    while (l >= 0 && r < n && s[l] == s[r]) {
+      ans++
+      l--
+      r++
+    } 
+  }
+  return ans
+}
