@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "do exercise in leetcode",
   "main": "leetcode.ts",
-  "scripts": {},
+  "scripts": {
+    "build": "babel src --extensions .ts --out-dir lib --ignore src/**/*.spec.ts,src/**/*.test.ts",
+    "test": "jest"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KeenV/leetcode.git"
@@ -14,5 +17,14 @@
     "url": "https://github.com/KeenV/leetcode/issues"
   },
   "homepage": "https://github.com/KeenV/leetcode#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.19",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3"
+  }
 }
